@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PropertyViewer.Domain\PropertyViewer.Domain.csproj" />
+    <ProjectReference Include="..\PropertyViewer.Infrastructure\PropertyViewer.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
