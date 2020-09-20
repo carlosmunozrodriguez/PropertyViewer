@@ -20,8 +20,10 @@ namespace PropertyViewer.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-            services.AddScoped<IPropertyRepository, PropertyRepository>();
+            services
+                .AddControllers().Services
+                .AddScoped<IPropertyRepository, PropertyRepository>()
+                .AddCors(options => options.AddDefaultPolicy(builder => builder.WithOrigins(Configuration["FrontEndUrl"])));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -32,16 +34,15 @@ namespace PropertyViewer.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app
+                .UseHttpsRedirection()
+                .UseRouting()
+                .UseCors()
+                .UseAuthorization()
+                .UseEndpoints(endpoints =>
+                {
+                    endpoints.MapControllers();
+                });
         }
     }
 }

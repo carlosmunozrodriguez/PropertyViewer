@@ -12,12 +12,10 @@ namespace PropertyViewer.Infrastructure.Repositories
 {
     public class PropertyRepository : IPropertyRepository, IDisposable
     {
-        private readonly IConfiguration _configuration;
         private readonly HttpClient _httpClient = new HttpClient();
 
         public PropertyRepository(IConfiguration configuration)
         {
-            _configuration = configuration;
             _httpClient.BaseAddress = new Uri(configuration["DataSourceUrl"]);
         }
 
