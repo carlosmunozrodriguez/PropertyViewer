@@ -2,16 +2,17 @@
 {
     public class Property
     {
-        public Property(int id, string? address, int? yearBuilt, decimal? listPrice, decimal? monthlyRent)
+        public Property(int id, string? address, int? yearBuilt, decimal? listPrice, decimal? monthlyRent, bool saved)
         {
             Id = id;
             Address = address;
             YearBuilt = yearBuilt;
             ListPrice = listPrice;
             MonthlyRent = monthlyRent;
+            Saved = saved;
         }
 
-        public int Id { get; set; }
+        public int Id { get; }
 
         public string? Address { get; }
 
@@ -22,8 +23,8 @@
         public decimal? MonthlyRent { get; }
 
         public decimal? GrossYield =>
-            MonthlyRent != null && ListPrice != null && ListPrice != 0
-                ? MonthlyRent * 12 / ListPrice
-                : null;
+            GrossYearCalculator.CalculateGrossYear(MonthlyRent, ListPrice);
+
+        public bool Saved { get; }
     }
 }

@@ -5,6 +5,8 @@ namespace PropertyViewer.Domain
 {
     public interface IPropertyRepository
     {
-        Task<IEnumerable<Property>> GetProperties();
+        Task<IEnumerable<Property>> GetPropertiesAsync();
+
+        Task<SavePropertyResult> SavePropertyAsync(int id);
     }
 }

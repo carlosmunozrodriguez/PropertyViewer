@@ -13,5 +13,7 @@
         public decimal? MonthlyRent { get; set; }
 
         public decimal? GrossYield { get; set; }
+
+        public bool Saved { get; set; }
     }
 }
