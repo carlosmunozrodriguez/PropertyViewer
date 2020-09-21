@@ -5,4 +5,5 @@ interface Property {
     listPrice: number;
     monthlyRent: number;
     grossYield: number;
+    saved: boolean;
 }

@@ -23,7 +23,7 @@ namespace PropertyViewer.Api
         public void ConfigureServices(IServiceCollection services) =>
             services
                 .AddControllers().Services
-                .AddCors(options => options.AddDefaultPolicy(builder => builder.WithOrigins(Configuration["FrontEndUrl"])))
+                .AddCors(options => options.AddDefaultPolicy(builder => builder.WithOrigins(Configuration["FrontEndUrl"]).AllowAnyHeader()))
                 .AddDbContextPool<PropertyViewerContext>(options => options.UseSqlServer(Configuration.GetConnectionString("PropertyViewer")))
                 .AddScoped<IPropertyRepository, PropertyRepository>()
         ;

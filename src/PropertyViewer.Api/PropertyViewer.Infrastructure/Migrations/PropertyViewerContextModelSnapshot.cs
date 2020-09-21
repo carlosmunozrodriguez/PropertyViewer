@@ -22,15 +22,13 @@ namespace PropertyViewer.Infrastructure.Migrations
             modelBuilder.Entity("PropertyViewer.Infrastructure.PersistenceModel.Property", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal?>("GrossYield")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18,4)");
 
                     b.Property<decimal?>("ListPrice")
                         .HasColumnType("decimal(18,2)");

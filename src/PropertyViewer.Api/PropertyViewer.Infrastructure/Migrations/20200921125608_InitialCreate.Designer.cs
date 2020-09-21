@@ -10,7 +10,7 @@ using PropertyViewer.Infrastructure.PersistenceModel;
 namespace PropertyViewer.Infrastructure.Migrations
 {
     [DbContext(typeof(PropertyViewerContext))]
-    [Migration("20200921105702_InitialCreate")]
+    [Migration("20200921125608_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,15 +24,13 @@ namespace PropertyViewer.Infrastructure.Migrations
             modelBuilder.Entity("PropertyViewer.Infrastructure.PersistenceModel.Property", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal?>("GrossYield")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18,4)");
 
                     b.Property<decimal?>("ListPrice")
                         .HasColumnType("decimal(18,2)");
